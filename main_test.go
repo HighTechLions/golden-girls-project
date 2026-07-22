@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"io"
 	"os"
+	"strconv"
 	"strings"
 	"testing"
 )
@@ -50,7 +51,7 @@ func TestCountingFrom1To100(t *testing.T) {
 	
 	// Verify sequence integrity
 	for i := 0; i < 100; i++ {
-		expected := string(rune(i + 1))
+		expected := strconv.Itoa(i + 1)
 		if lines[i] != expected {
 			t.Errorf("Line %d: expected '%s', got '%s'", i, expected, lines[i])
 		}
